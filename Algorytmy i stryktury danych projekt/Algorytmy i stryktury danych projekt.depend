@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1636237591 source:d:\in¿ynieria i analiza danych\semestr i\wstêp do programowania\projekt\algorytmy i struktury danych projekt\algorytmy i stryktury danych projekt\main.cpp
+	<iostream>
+	<string>
+	<algorithm>
+	<vector>
+	<cstdio>
+	<ctime>
+
