@@ -7,7 +7,7 @@
 std::string GetConcatenatedStringFromVector(std::vector<std::string> vector) {
 	std::string concatenatedString = ""; //deklaracja zmiennej typu string
 	for (size_t i = 0; i < vector.size(); ++i) {
-		concatenatedString += vector[i]; //To samo co: biggestNumber = biggestNumber + transformedVector[i] (wszystkie stringi z wektora łączymy w jedno do zmiennej biggestNumber)
+		concatenatedString += vector[i]; //To samo co: concatenatedString = concatenatedString + vector[i] (wszystkie stringi z wektora łączymy w jedno do zmiennej biggestNumber)
 	}
 	return concatenatedString;
 }
