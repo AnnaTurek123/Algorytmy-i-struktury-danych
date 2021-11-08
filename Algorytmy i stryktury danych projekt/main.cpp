@@ -3,6 +3,12 @@
 #include <algorithm> //sort, transform
 #include <vector> // vector
 #include <ctime>
+#include <fstream>
+#include <chrono>
+#include <iomanip>
+
+using namespace std;
+using namespace std::chrono;
 
 std::string GetConcatenatedStringFromVector(std::vector<std::string> vector) {
 	std::string concatenatedString = ""; //deklaracja zmiennej typu string
@@ -33,13 +39,27 @@ std::string GetBiggestNumber(std::vector<int> inputVector) {
 
 	return biggestNumber;
 }
+void tests (int NumberOfTests)
+{
+
 
 int main() {
 
 	int input; // deklaracja zmiennej
 	std::vector<int> inputVector; //deklaracja wektora do którego wrzucimy nasze inputy (int) [1,2,3,4]
-	std::clock_t start; //deklaracja zmiennej start
-	double duration; // deklaracja zeminnej duration
+
+	cout << " Press \n t - test \n c - continue" << endl;
+	char option;
+	cin >> option;
+	switch (option)
+	case 't': {
+        int NumberOfTests;
+        cout << "input number of test" << endl;
+        cin >> NumberOfTests;
+        tests (NumberOfTests);
+        break;
+    }
+    default : {
 
 	std::cout << "Fill vector with numbers." << std::endl;
 	std::cout << "Write 'x' if you want to end." << std::endl;
@@ -47,13 +67,9 @@ int main() {
 	while (std::cin >> input) { //pętla while gdzie warunek jest spełniony dopóki nie wpiszemy litery
 		inputVector.push_back(input); // zapełnianie wartościami wektora
 	}
-	start = std::clock(); //start odliczania czasu
-
 	std::string biggestNumber = GetBiggestNumber(inputVector); //przeniesienie głównej logiki do funkcji GetBiggestNumber()
-
 	std::cout << "Your biggest number is: " + biggestNumber << std::endl;
-
-	duration = (std::clock() - start) / (double)CLOCKS_PER_SEC; // obliczenie czasu trwania pracy aplikacji
-	std::cout << "printf: " << duration << '\n'; //wyświetlenie czasu
+	break;
+    }
 }
 
