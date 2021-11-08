@@ -50,7 +50,7 @@ void tests (int NumberOfTests)
 
     high_resolution_clock::time_point start;
     high_resolution_clock::time_point stop;
-    douration <double> time;
+    std::douration <double> time;
     int n = 100;
     int m;
     for (m = 0; m < NumberOfTests; m++) {
