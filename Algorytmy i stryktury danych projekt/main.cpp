@@ -39,8 +39,40 @@ std::string GetBiggestNumber(std::vector<int> inputVector) {
 
 	return biggestNumber;
 }
+
 void tests (int NumberOfTests)
 {
+    ofstream test;
+    test.open ("wyniki.txt");
+    srand((unsigned) time(NULL));
+
+    string temp;
+
+    high_resolution_clock::time_point start;
+    high_resolution_clock::time_point stop;
+    douration <double> time;
+    int n = 100;
+    int m;
+    for (m = 0; m < NumberOfTests; m++) {
+        vector<int> inputVector(n);
+
+            for (int i = 0; i < inputVector.size(); i++)
+            inputVector[i] = rand();
+
+        start = high_resolution_clock::now();
+        temp = GetBiggestNumber(inputVector);
+        stop = high_resolution_clock::now();
+        time = stop - start;
+
+        test << "Czas  " << setw(10) << time.count();
+        test << "               Liczba elementów vectora     " << n << endl;
+        n = n * 3;
+    }
+    test.close();
+
+
+    }
+
 
 
 int main() {
