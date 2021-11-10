@@ -1,0 +1,5 @@
+Czas         0Liczba elementów vectora100
+Czas         0Liczba elementów vectora300
+Czas 0.0011154Liczba elementów vectora900
+Czas         0Liczba elementów vectora2700
+Czas 0.0073124Liczba elementów vectora8100
