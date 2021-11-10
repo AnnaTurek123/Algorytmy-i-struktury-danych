@@ -7,10 +7,13 @@
 	<cstdio>
 	<ctime>
 
-1636294481 source:c:\users\hp\documents\github\algorytmy-i-struktury-danych\algorytmy i stryktury danych projekt\main.cpp
+1636569476 source:c:\users\hp\documents\github\algorytmy-i-struktury-danych\algorytmy i stryktury danych projekt\main.cpp
 	<iostream>
 	<string>
 	<algorithm>
 	<vector>
 	<ctime>
+	<fstream>
+	<chrono>
+	<iomanip>
 
