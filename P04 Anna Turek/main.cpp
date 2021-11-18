@@ -11,8 +11,8 @@ using namespace std;
 using namespace std::chrono;
 
 std::string GetConcatenatedStringFromVector(std::vector<std::string> vector) {
-	std::string concatenatedString = ""; //deklaracja zmiennej typu string
-	for (size_t i = 0; i < vector.size(); ++i) {
+	std::string concatenatedString = ""; //deklaracja pustej zmiennej typu string
+	for (size_t i = 0; i < vector.size(); ++i) { // iteracja tyle razy ile wynosi wielkość wektora
 		concatenatedString += vector[i]; //To samo co: concatenatedString = concatenatedString + vector[i] (wszystkie stringi z wektora łączymy w jedno do zmiennej biggestNumber)
 	}
 	return concatenatedString;
@@ -33,8 +33,8 @@ std::string GetBiggestNumber(std::vector<int> inputVector) {
 	);
 
 	std::sort(
-		transformedVector.begin(), //pierwszy parametr: początkowa wartość inputVector
-		transformedVector.end(), //drugi parametr: końcowa wartość inputVector
+		transformedVector.begin(), //pierwszy parametr: początkowa wartość transformedVector
+		transformedVector.end(), //drugi parametr: końcowa wartość transformedVector
 		[](const std::string& lhs, const std::string& rhs) { return rhs + lhs < lhs + rhs; } //funkcja która pobiera 2 parametry, łączy je ze sobą w różnej kolejności i na podstawie większy/mniejszy ustala w jakiej kolejności posortować dane w wektorze
 	);  //lhs, rhs - parametry, które przekazujemy do ciała funkcji, łączymy je na dwa sposoby i porównujemy
 
@@ -48,35 +48,35 @@ std::string GetBiggestNumber(std::vector<int> inputVector) {
 
 
 
-void tests (int NumberOfTests)
+void tests (int NumberOfTests) // funkcja typu void nie zwracca żadnej wartości, danych które później mogłyby być poddane obróbce
 {
-    std::ofstream test;
-    test.open ("wyniki.txt");
-    srand((unsigned) time(NULL));
+    std::ofstream test; // zapis do pliku jakim będzie notatnik
+    test.open ("wyniki.txt"); // otwieramy połączenie z plikiem
+    srand((unsigned) time(NULL)); // funkcja losująca liczby używane do testu
 
     std::string temp;
 
-    high_resolution_clock::time_point start;
+    high_resolution_clock::time_point start; // high_resolution_clock to typ zmiennej czasowej
     high_resolution_clock::time_point stop;
-    duration<double> time;
-    int n = 100;
-    int m;
-    for (m = 0; m < NumberOfTests; m++){
-        vector<int> inputVector(n);
+    duration<double> time; //przedział czasowy -- "tiki" najmniejsza  reprezentacja czasu
+    int n = 100; // liczba elementów wektora
+    int m; // liczba testów
+    for (m = 0; m < NumberOfTests; m++){ // oblicza czas tyle razy ile wynosi liczba testów wpisanych przez użytkownika
+        vector<int> inputVector(n); // bierze 100 losowych elementów z wektora inputVector
 
             for (int i = 0; i < inputVector.size(); i++)
-            inputVector[i] = rand();
+            inputVector[i] = rand(); // losujemy liczbę i przypisujemy ją do konkretnego elementu w wektorze
 
         start = high_resolution_clock::now();
         temp = GetBiggestNumber(inputVector);
         stop = high_resolution_clock::now();
-        time = stop - start;
+        time = stop - start; // obliczanie czasu
 
         test << "Czas" << setw(10) << time.count();
         test << "Liczba elementów vectora" << n << endl;
-        n = n * 3;
+        n = n * 3; // mnoży początkowe elementy razy x
     }
-    test.close();
+    test.close(); // zamykamy połączenie z plikiem
 
     }
 
